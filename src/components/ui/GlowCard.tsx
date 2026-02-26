@@ -30,7 +30,7 @@ export const GlowCard: React.FC<GlowCardProps> = ({ children, className, ...prop
                 "relative overflow-hidden transition-all duration-300 rounded-xl glass group",
                 className
             )}
-            {...(props as any)}
+            {...props}
         >
             <div
                 className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition duration-300 z-0"

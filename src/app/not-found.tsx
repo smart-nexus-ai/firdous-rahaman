@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft, Terminal } from 'lucide-react';
+import { Home, ArrowLeft } from 'lucide-react';
 import { fadeUp } from '@/lib/animations';
 
 export default function NotFound() {

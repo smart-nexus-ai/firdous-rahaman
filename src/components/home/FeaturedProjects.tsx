@@ -7,7 +7,7 @@ import { GlowCard } from '@/components/ui/GlowCard';
 import { Button } from '@/components/ui/Button';
 import { projects } from '@/data/projects';
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+
 
 export const FeaturedProjects = () => {
     const featured = projects.filter(p => [1, 2, 3].includes(p.order)).sort((a, b) => a.order - b.order);

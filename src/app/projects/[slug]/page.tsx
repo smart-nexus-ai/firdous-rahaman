@@ -5,7 +5,6 @@ import { ArrowLeft, Calendar, Github, Globe, BookOpen, CheckCircle } from 'lucid
 import { projects } from '@/data/projects';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ArchitectureDiagram } from '@/components/projects/ArchitectureDiagram';
-import { TechBadge } from '@/components/projects/TechBadge';
 import { TerminalBlock } from '@/components/ui/TerminalBlock';
 import { Button } from '@/components/ui/Button';
 

@@ -21,12 +21,12 @@ export const CTASection = () => {
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary-500/10 blur-[100px] rounded-full pointer-events-none -z-10" />
 
                     <h2 className="text-3xl md:text-4xl font-mono font-bold text-white mb-6">
-                        Let's Build Something Together
+                        Let&apos;s Build Something Together
                     </h2>
 
                     <p className="text-lg text-gray-400 mb-10 max-w-xl mx-auto leading-relaxed">
                         Open for collaborations in IoT, embedded systems, and machine learning projects.
-                        Whether you have a specific idea or just want to chat tech, I'm always open to connecting.
+                        Whether you have a specific idea or just want to chat tech, I&apos;m always open to connecting.
                     </p>
 
                     <Button href="/contact" variant="primary" size="lg" icon={Mail} className="shadow-[0_0_20px_rgba(14,165,233,0.3)]">

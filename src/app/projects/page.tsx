@@ -6,13 +6,14 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ProjectFilter } from '@/components/projects/ProjectFilter';
 import { ProjectCard } from '@/components/projects/ProjectCard';
 import { projects } from '@/data/projects';
+import { ProjectCategory } from '@/types/project';
 
 export default function ProjectsPage() {
     const [activeFilter, setActiveFilter] = useState('all');
 
     const filteredProjects = activeFilter === 'all'
         ? projects
-        : projects.filter(p => p.category.includes(activeFilter as any));
+        : projects.filter(p => p.category.includes(activeFilter as ProjectCategory));
 
     return (
         <div className="py-20 px-4 max-w-7xl mx-auto min-h-screen">

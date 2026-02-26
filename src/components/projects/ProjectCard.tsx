@@ -3,7 +3,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { GlowCard } from '@/components/ui/GlowCard';
-import { Badge } from '@/components/ui/Badge';
 import { Project } from '@/types/project';
 import { ArrowRight, Calendar } from 'lucide-react';
 
