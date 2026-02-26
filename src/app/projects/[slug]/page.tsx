@@ -7,6 +7,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ArchitectureDiagram } from '@/components/projects/ArchitectureDiagram';
 import { TerminalBlock } from '@/components/ui/TerminalBlock';
 import { Button } from '@/components/ui/Button';
+import { siteConfig } from '@/data/siteConfig';
 
 export async function generateStaticParams() {
     return projects.map((project) => ({
@@ -21,9 +22,46 @@ export async function generateMetadata({ params }: { params: { slug: string } })
         return { title: 'Project Not Found' };
     }
 
+    const projectKeywords = project.techStack.map((tech) => tech.name);
+    const projectUrl = `${siteConfig.url}/projects/${project.slug}`;
+
     return {
         title: project.title,
         description: project.tagline,
+        keywords: [...projectKeywords, ...siteConfig.keywords.slice(0, 5)],
+        openGraph: {
+            title: `${project.title} | ${siteConfig.name}`,
+            description: project.tagline,
+            url: projectUrl,
+            type: 'article',
+            images: project.heroImage
+                ? [
+                    {
+                        url: project.heroImage,
+                        width: 1200,
+                        height: 630,
+                        alt: project.title,
+                    },
+                ]
+                : [
+                    {
+                        url: siteConfig.ogImage,
+                        width: 1200,
+                        height: 630,
+                        alt: `${siteConfig.name} - ${siteConfig.role}`,
+                    },
+                ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${project.title} | ${siteConfig.name}`,
+            description: project.tagline,
+            creator: '@Firdous_TFG',
+            images: [project.heroImage || siteConfig.ogImage],
+        },
+        alternates: {
+            canonical: projectUrl,
+        },
     };
 }
 

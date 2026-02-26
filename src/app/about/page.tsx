@@ -7,8 +7,19 @@ import { Interests } from '@/components/about/Interests';
 import { siteConfig } from '@/data/siteConfig';
 
 export const metadata: Metadata = {
-    title: 'About | ' + siteConfig.name,
-    description: 'Learn more about my background, skills, and journey in IoT and embedded systems.',
+    title: 'About',
+    description:
+        'Learn more about Firdous Rahaman - IoT & Embedded Systems Developer with expertise in ESP32, Arduino, and Machine Learning',
+    openGraph: {
+        title: 'About | Firdous Rahaman',
+        description:
+            'Learn more about Firdous Rahaman - IoT & Embedded Systems Developer with expertise in ESP32, Arduino, and Machine Learning',
+        url: `${siteConfig.url}/about`,
+        type: 'profile',
+    },
+    alternates: {
+        canonical: `${siteConfig.url}/about`,
+    },
 };
 
 export default function AboutPage() {

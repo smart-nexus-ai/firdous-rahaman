@@ -4,6 +4,8 @@ import './globals.css';
 import { Navbar } from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import ScrollToTop from '@/components/ui/ScrollToTop';
+import { StructuredData } from '@/components/seo/StructuredData';
+import { siteConfig } from '@/data/siteConfig';
 
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
@@ -16,51 +18,43 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://your-portfolio-url.vercel.app'),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Firdous Rahaman — IoT Developer & ML Engineer',
-    template: '%s | Firdous Rahaman',
+    default: siteConfig.title,
+    template: `%s | ${siteConfig.name}`,
   },
-  description:
-    'IoT developer specializing in ESP32, embedded systems, machine learning, and Android development. Building smart connected systems.',
-  keywords: [
-    'IoT Developer',
-    'ESP32',
-    'Embedded Systems',
-    'Machine Learning',
-    'Android Developer',
-    'Kotlin',
-    'Firebase',
-    'TensorFlow Lite',
-    'Smart Systems',
-    'Firdous Rahaman',
-  ],
-  authors: [{ name: 'Firdous Rahaman' }],
-  creator: 'Firdous Rahaman',
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  formatDetection: {
+    email: false,
+    telephone: false,
+    address: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://smart-nexus.vercel.app',
-    siteName: 'Firdous Rahaman',
-    title: 'Firdous Rahaman — IoT Developer & ML Engineer',
-    description:
-      'IoT developer specializing in ESP32, embedded systems, machine learning, and Android development.',
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    title: siteConfig.title,
+    description: siteConfig.description,
     images: [
       {
-        url: '/og-image.png',
+        url: siteConfig.ogImage,
         width: 1200,
         height: 630,
-        alt: 'Firdous Rahaman Portfolio',
+        alt: `${siteConfig.name} - ${siteConfig.role}`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Firdous Rahaman — IoT Developer & ML Engineer',
-    description:
-      'IoT developer specializing in ESP32, embedded systems, machine learning, and Android development.',
+    title: siteConfig.title,
+    description: siteConfig.description,
     creator: '@Firdous_TFG',
-    images: ['/og-image.png'],
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -73,6 +67,14 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/images/icon-192x192.png',
+  },
+  manifest: '/site.webmanifest',
+  alternates: {
+    canonical: siteConfig.url,
+  },
 };
 
 export default function RootLayout({
@@ -82,6 +84,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
+      <head>
+        <StructuredData />
+      </head>
       <body
         className={`${jetbrainsMono.variable} ${inter.variable} font-sans bg-dark-950 text-white antialiased`}
       >

@@ -4,11 +4,21 @@ import ContactForm from '@/components/contact/ContactForm';
 import SocialLinks from '@/components/contact/SocialLinks';
 import ContactInfo from '@/components/contact/ContactInfo';
 import { TerminalBlock } from '@/components/ui/TerminalBlock';
+import { siteConfig } from '@/data/siteConfig';
 
 export const metadata: Metadata = {
     title: 'Contact',
     description:
-        'Get in touch for collaborations, freelance work, or just to say hello.',
+        'Get in touch with Firdous Rahaman for IoT and embedded systems projects',
+    openGraph: {
+        title: 'Contact | Firdous Rahaman',
+        description:
+            'Get in touch with Firdous Rahaman for IoT and embedded systems projects',
+        url: `${siteConfig.url}/contact`,
+    },
+    alternates: {
+        canonical: `${siteConfig.url}/contact`,
+    },
 };
 
 export default function ContactPage() {
