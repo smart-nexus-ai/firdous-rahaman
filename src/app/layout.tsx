@@ -18,8 +18,8 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://your-portfolio-url.vercel.app'),
   title: {
-    default: 'Firdous Mahbub Mondal — IoT Developer & ML Engineer',
-    template: '%s | Firdous Mahbub Mondal',
+    default: 'Firdous Rahaman — IoT Developer & ML Engineer',
+    template: '%s | Firdous Rahaman',
   },
   description:
     'IoT developer specializing in ESP32, embedded systems, machine learning, and Android development. Building smart connected systems.',
@@ -33,16 +33,16 @@ export const metadata: Metadata = {
     'Firebase',
     'TensorFlow Lite',
     'Smart Systems',
-    'Firdous Mahbub Mondal',
+    'Firdous Rahaman',
   ],
-  authors: [{ name: 'Firdous Mahbub Mondal' }],
-  creator: 'Firdous Mahbub Mondal',
+  authors: [{ name: 'Firdous Rahaman' }],
+  creator: 'Firdous Rahaman',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://your-portfolio-url.vercel.app',
-    siteName: 'Firdous Mahbub Mondal',
-    title: 'Firdous Mahbub Mondal — IoT Developer & ML Engineer',
+    url: 'https://smart-nexus.vercel.app',
+    siteName: 'Firdous Rahaman',
+    title: 'Firdous Rahaman — IoT Developer & ML Engineer',
     description:
       'IoT developer specializing in ESP32, embedded systems, machine learning, and Android development.',
     images: [
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Firdous Mahbub Mondal Portfolio',
+        alt: 'Firdous Rahaman Portfolio',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Firdous Mahbub Mondal — IoT Developer & ML Engineer',
+    title: 'Firdous Rahaman — IoT Developer & ML Engineer',
     description:
       'IoT developer specializing in ESP32, embedded systems, machine learning, and Android development.',
     creator: '@Firdous_TFG',
