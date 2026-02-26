@@ -19,10 +19,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <Link href={`/projects/${project.slug}`} className="group block h-full">
             <GlowCard className="flex flex-col h-full bg-dark-900/50">
                 <div className="aspect-video relative rounded-t-xl overflow-hidden bg-gradient-to-br from-dark-800 to-dark-900 border-b border-dark-800 flex items-center justify-center">
-                    {/* Placeholder for real hero image */}
-                    <span className="text-6xl font-mono text-dark-700 font-bold opacity-50 group-hover:scale-110 transition-transform duration-500">
-                        {initial}
-                    </span>
+                    {project.heroImage ? (
+                        <img
+                            src={project.heroImage}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                    ) : (
+                        <span className="text-6xl font-mono text-dark-700 font-bold opacity-50 group-hover:scale-110 transition-transform duration-500">
+                            {initial}
+                        </span>
+                    )}
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">

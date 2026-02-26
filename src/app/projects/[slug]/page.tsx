@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { ArrowLeft, Calendar, Github, Globe, BookOpen, CheckCircle } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Calendar, Github, Globe, BookOpen, CheckCircle } from 'lucide-react';
 import { projects } from '@/data/projects';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { ArchitectureDiagram } from '@/components/projects/ArchitectureDiagram';
@@ -44,9 +44,18 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
             </Link>
 
             <div className="aspect-video w-full bg-gradient-to-br from-dark-800 to-dark-900 rounded-xl mb-8 flex items-center justify-center border border-dark-800 shadow-2xl overflow-hidden relative">
-                {/* Placeholder image representation */}
-                <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
-                <span className="text-8xl font-mono font-bold text-dark-700 opacity-50 z-10">{project.title.charAt(0)}</span>
+                {project.heroImage ? (
+                    <img
+                        src={project.heroImage}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                    />
+                ) : (
+                    <>
+                        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+                        <span className="text-8xl font-mono font-bold text-dark-700 opacity-50 z-10">{project.title.charAt(0)}</span>
+                    </>
+                )}
             </div>
 
             <div className="mb-12">
@@ -109,6 +118,23 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                     </ul>
                 </section>
 
+                {project.gallery && project.gallery.length > 0 && (
+                    <section>
+                        <SectionHeading title="Project Gallery" className="mb-6" />
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            {project.gallery.map((image, i) => (
+                                <div key={i} className="aspect-video relative rounded-xl overflow-hidden border border-dark-800 group">
+                                    <img
+                                        src={image}
+                                        alt={`${project.title} gallery ${i + 1}`}
+                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
+
                 {project.highlights.length > 0 && (
                     <section>
                         <SectionHeading title="Project Highlights" className="mb-6" />
@@ -138,20 +164,51 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
                 <section className="pt-8 flex flex-wrap gap-4">
                     {project.links.github && (
-                        <Button href={project.links.github} variant="outline" icon={Github}>
+                        <Button href={project.links.github} variant="outline" icon={Github} target="_blank">
                             View Repository
                         </Button>
                     )}
                     {project.links.live && (
-                        <Button href={project.links.live} variant="primary" icon={Globe}>
+                        <Button href={project.links.live} variant="primary" icon={Globe} target="_blank">
                             Live Demo
                         </Button>
                     )}
                     {project.links.blog && (
-                        <Button href={project.links.blog} variant="ghost" icon={BookOpen}>
+                        <Button href={project.links.blog} variant="ghost" icon={BookOpen} target="_blank">
                             Read Case Study
                         </Button>
                     )}
+                </section>
+
+                {/* Related Projects */}
+                <section className="pt-16 border-t border-dark-800">
+                    <SectionHeading title="Related Projects" className="mb-8" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {projects
+                            .filter(p => p.slug !== project.slug && p.category.some(cat => project.category.includes(cat)))
+                            .slice(0, 2)
+                            .map(related => (
+                                <Link
+                                    key={related.slug}
+                                    href={`/projects/${related.slug}`}
+                                    className="group relative aspect-[16/5] rounded-xl overflow-hidden border border-dark-800 flex items-center p-4 bg-dark-900/30 hover:bg-dark-900/50 transition-all"
+                                >
+                                    <div className="w-16 h-16 rounded-lg bg-dark-900 overflow-hidden shrink-0 border border-dark-800">
+                                        {related.heroImage ? (
+                                            <img src={related.heroImage} alt={related.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-xl font-mono font-bold text-dark-700">{related.title[0]}</div>
+                                        )}
+                                    </div>
+                                    <div className="ml-4">
+                                        <h4 className="font-mono font-bold text-gray-200 group-hover:text-primary-500 transition-colors">{related.title}</h4>
+                                        <p className="text-xs text-gray-500 uppercase tracking-widest">{related.category[0]}</p>
+                                    </div>
+                                    <ArrowRight className="w-4 h-4 ml-auto text-gray-600 group-hover:text-primary-500 group-hover:translate-x-1 transition-all" />
+                                </Link>
+                            ))
+                        }
+                    </div>
                 </section>
             </div>
 

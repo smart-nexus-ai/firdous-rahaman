@@ -3,12 +3,15 @@ import Link from 'next/link';
 import { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & React.AnchorHTMLAttributes<HTMLAnchorElement>;
+
+interface ButtonProps extends Partial<BaseButtonProps> {
     variant?: 'primary' | 'outline' | 'ghost';
     size?: 'sm' | 'md' | 'lg';
     href?: string;
     icon?: LucideIcon;
 }
+
 
 export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
     ({ className, variant = 'primary', size = 'md', href, icon: Icon, children, ...props }, ref) => {

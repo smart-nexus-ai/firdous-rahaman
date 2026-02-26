@@ -7,7 +7,7 @@ export const siteConfig = {
         github: "https://github.com/firdouscgec",
         linkedin: "https://linkedin.com/in/firdous-rahaman-11416b254",
         twitter: "https://twitter.com/Firdous_TFG",
-        email: "[EMAIL_ADDRESS]",
+        email: "firdousrahaman.tfg@gmail.com",
     },
     location: "Cooch Behar, West Bengal, India",
     role: "IoT & Embedded Systems Developer",

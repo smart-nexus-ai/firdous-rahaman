@@ -24,11 +24,18 @@ export const FeaturedProjects = () => {
                 {featured.map((project) => (
                     <GlowCard key={project.slug} className="flex flex-col h-full bg-dark-900/50">
                         {/* Image Placeholder */}
-                        <div className="aspect-video relative rounded-t-xl overflow-hidden bg-gradient-to-br from-dark-800 to-dark-900 border-b border-dark-800">
-                            <div className="absolute inset-0 flex items-center justify-center opacity-30">
-                                {/* This would be an Image component in prod, simplified for now: */}
-                                <span className="font-mono text-gray-500 uppercase tracking-widest text-xs">Project Preview</span>
-                            </div>
+                        <div className="aspect-video relative rounded-t-xl overflow-hidden bg-gradient-to-br from-dark-800 to-dark-900 border-b border-dark-800 flex items-center justify-center">
+                            {project.heroImage ? (
+                                <img
+                                    src={project.heroImage}
+                                    alt={project.title}
+                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                />
+                            ) : (
+                                <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                                    <span className="font-mono text-gray-500 uppercase tracking-widest text-xs">Project Preview</span>
+                                </div>
+                            )}
                         </div>
 
                         <div className="p-6 flex flex-col flex-1">
