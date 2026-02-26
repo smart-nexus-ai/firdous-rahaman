@@ -4,11 +4,11 @@ import Link from 'next/link';
 import { Github, Linkedin, Twitter, Instagram, Mail, Heart, Terminal } from 'lucide-react';
 
 const socialLinks = [
-    { icon: Github, href: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: Linkedin, href: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
+    { icon: Github, href: 'https://github.com/firdouscgec', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://linkedin.com/in/firdous-rahaman-11416b254', label: 'LinkedIn' },
     { icon: Twitter, href: 'https://twitter.com/Firdous_TFG', label: 'Twitter' },
-    { icon: Instagram, href: 'https://instagram.com/yourusername', label: 'Instagram' },
-    { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },
+    { icon: Instagram, href: 'https://instagram.com/Firdous_TFG', label: 'Instagram' },
+    { icon: Mail, href: 'mailto:firdousrahaman.tfg@gmail.com', label: 'Email' },
 ];
 
 const navLinks = [
@@ -96,7 +96,7 @@ export default function Footer() {
                 {/* Bottom Section */}
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-gray-600 font-mono">
-                        © {currentYear} Firdous Mahbub Mondal. All rights reserved.
+                        © {currentYear} Firdous Rahaman. All rights reserved.
                     </p>
                     <p className="text-xs text-gray-600 font-mono flex items-center gap-1">
                         Built with <Heart className="w-3 h-3 text-red-500" /> using Next.js

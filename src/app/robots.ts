@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/api/',
         },
-        sitemap: 'https://smart-nexus-ai.vercel.app/sitemap.xml',
+        sitemap: 'https://firdous-rahaman.vercel.app/sitemap.xml',
     };
 }

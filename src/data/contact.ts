@@ -3,13 +3,13 @@ import type { SocialLink } from '@/types/contact';
 export const socialLinks: SocialLink[] = [
     {
         name: 'GitHub',
-        url: 'https://github.com/Firdous_TFG',
+        url: 'https://github.com/firdouscgec',
         icon: 'Github',
         username: '@Firdous_TFG',
     },
     {
         name: 'LinkedIn',
-        url: 'https://linkedin.com/in/Firdous_Rahaman',
+        url: 'https://linkedin.com/in/firdous-rahaman-11416b254',
         icon: 'Linkedin',
         username: 'Firdous Rahaman',
     },

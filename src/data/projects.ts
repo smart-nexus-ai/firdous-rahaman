@@ -208,7 +208,7 @@ export const projects: Project[] = [
             "End-to-end architecture documentation"
         ],
         architectureDescription: "Client Apps ↔ Load Balancer ↔ WebSocket/MQTT Brokers ↔ Redis Pub/Sub ↔ Database Servers",
-        links: { github: "https://github.com" },
+        links: { github: "https://github.com/firdouscgec" },
         highlights: [
             { label: "Focus", value: "System Architecture" },
             { label: "Protocols", value: "MQTT & WebSocket" }
