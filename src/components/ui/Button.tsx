@@ -31,7 +31,12 @@ export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Bu
 
         if (href) {
             return (
-                <Link href={href} className={classes} ref={ref as React.ForwardedRef<HTMLAnchorElement>}>
+                <Link
+                    href={href}
+                    className={classes}
+                    ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+                    {...(props as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+                >
                     {Icon && <Icon className="w-5 h-5" />}
                     {children}
                 </Link>
