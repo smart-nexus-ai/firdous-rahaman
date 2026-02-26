@@ -40,21 +40,12 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [
-      {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} - ${siteConfig.role}`,
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
     creator: '@Firdous_TFG',
-    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -68,8 +59,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: '/favicon.ico',
-    apple: '/images/icon-192x192.png',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/site.webmanifest',
   alternates: {
@@ -84,9 +79,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <head>
-        <StructuredData />
-      </head>
+      <head />
       <body
         className={`${jetbrainsMono.variable} ${inter.variable} font-sans bg-dark-950 text-white antialiased`}
       >
@@ -104,6 +97,7 @@ export default function RootLayout({
             <main className="flex-grow">{children}</main>
             <Footer />
             <ScrollToTop />
+            <StructuredData />
           </div>
         </div>
       </body>

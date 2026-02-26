@@ -2,9 +2,9 @@ export const siteConfig = {
     name: "Firdous Rahaman",
     title: "Firdous Rahaman - IoT & Embedded Systems Developer",
     description:
-        "IoT & Embedded Systems Developer specializing in ESP32, Arduino, Machine Learning, Firebase, and Android development. B.Tech in Electronics and Communication Engineering from Cooch Behar, West Bengal, India.",
+        "IoT & Embedded Systems Developer specializing in ESP32, Arduino, ML & Firebase. Building smart hardware-software solutions.",
     url: "https://firdous-rahaman.vercel.app",
-    ogImage: "/og-image.png",
+    ogImage: "/opengraph-image",
     links: {
         github: "https://github.com/firdouscgec",
         linkedin: "https://linkedin.com/in/firdous-rahaman-11416b254",

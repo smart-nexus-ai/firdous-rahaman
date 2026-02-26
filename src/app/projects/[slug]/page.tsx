@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Metadata } from 'next';
 import { ArrowLeft, ArrowRight, Calendar, Github, Globe, BookOpen, CheckCircle } from 'lucide-react';
 import { projects } from '@/data/projects';
@@ -83,10 +84,13 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
 
             <div className="aspect-video w-full bg-gradient-to-br from-dark-800 to-dark-900 rounded-xl mb-8 flex items-center justify-center border border-dark-800 shadow-2xl overflow-hidden relative">
                 {project.heroImage ? (
-                    <img
+                    <Image
                         src={project.heroImage}
                         alt={project.title}
-                        className="w-full h-full object-cover"
+                        fill
+                        priority
+                        sizes="(max-width: 768px) 100vw, 896px"
+                        className="object-cover"
                     />
                 ) : (
                     <>
@@ -162,10 +166,12 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             {project.gallery.map((image, i) => (
                                 <div key={i} className="aspect-video relative rounded-xl overflow-hidden border border-dark-800 group">
-                                    <img
+                                    <Image
                                         src={image}
                                         alt={`${project.title} gallery ${i + 1}`}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 50vw"
+                                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                                     />
                                 </div>
                             ))}
@@ -231,9 +237,9 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                                     href={`/projects/${related.slug}`}
                                     className="group relative aspect-[16/5] rounded-xl overflow-hidden border border-dark-800 flex items-center p-4 bg-dark-900/30 hover:bg-dark-900/50 transition-all"
                                 >
-                                    <div className="w-16 h-16 rounded-lg bg-dark-900 overflow-hidden shrink-0 border border-dark-800">
+                                    <div className="w-16 h-16 rounded-lg bg-dark-900 overflow-hidden shrink-0 border border-dark-800 relative">
                                         {related.heroImage ? (
-                                            <img src={related.heroImage} alt={related.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform" />
+                                            <Image src={related.heroImage} alt={related.title} fill sizes="64px" className="object-cover group-hover:scale-110 transition-transform" />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center text-xl font-mono font-bold text-dark-700">{related.title[0]}</div>
                                         )}

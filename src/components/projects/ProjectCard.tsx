@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { GlowCard } from '@/components/ui/GlowCard';
 import { Project } from '@/types/project';
 import { ArrowRight, Calendar } from 'lucide-react';
@@ -20,10 +21,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
             <GlowCard className="flex flex-col h-full bg-dark-900/50">
                 <div className="aspect-video relative rounded-t-xl overflow-hidden bg-gradient-to-br from-dark-800 to-dark-900 border-b border-dark-800 flex items-center justify-center">
                     {project.heroImage ? (
-                        <img
+                        <Image
                             src={project.heroImage}
                             alt={project.title}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            fill
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            className="object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                     ) : (
                         <span className="text-6xl font-mono text-dark-700 font-bold opacity-50 group-hover:scale-110 transition-transform duration-500">

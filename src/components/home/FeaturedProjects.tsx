@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { GlowCard } from '@/components/ui/GlowCard';
 import { Button } from '@/components/ui/Button';
@@ -26,10 +27,12 @@ export const FeaturedProjects = () => {
                         {/* Image Placeholder */}
                         <div className="aspect-video relative rounded-t-xl overflow-hidden bg-gradient-to-br from-dark-800 to-dark-900 border-b border-dark-800 flex items-center justify-center">
                             {project.heroImage ? (
-                                <img
+                                <Image
                                     src={project.heroImage}
                                     alt={project.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                    className="object-cover group-hover:scale-110 transition-transform duration-500"
                                 />
                             ) : (
                                 <div className="absolute inset-0 flex items-center justify-center opacity-30">
