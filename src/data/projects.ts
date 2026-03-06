@@ -34,13 +34,13 @@ export const projects: Project[] = [
             { label: "Predictions", value: "5 future values" },
             { label: "Interval", value: "30s" }
         ],
-        order: 1
+        order: 4
     },
     {
         slug: "smart-attendance",
-        title: "Smart Attendance System",
-        tagline: "Automated student attendance tracking with real-time sync",
-        description: "A comprehensive academic attendance system designed for faculty to seamlessly track daily student attendance. It organizes data systematically by academic year, department, and semester, with robust Firebase security rules.",
+        title: "AttendPro - Smart Attendance Manager",
+        tagline: "Digitize your classroom attendance with offline-first technology",
+        description: "A comprehensive academic attendance system built with modern technology for teachers. Features include offline-first capabilities, background sync, session locking to prevent duplicates, and 3 types of reports (Summary, Defaulter, Date-wise) with PDF export.",
         category: ["mobile", "web"],
         status: "completed",
         duration: "4 months",
@@ -48,23 +48,25 @@ export const projects: Project[] = [
         gallery: ["/projects/attendance-1.jpg"],
         techStack: [
             { name: "Kotlin", icon: "smartphone", category: "Mobile" },
-            { name: "Firebase Firestore", icon: "database", category: "Backend" }
+            { name: "Firebase RTDB", icon: "database", category: "Backend" },
+            { name: "WorkManager", icon: "cpu", category: "Background" },
+            { name: "Material3", icon: "palette", category: "UI" }
         ],
         features: [
-            "Academic year/department/semester structure",
-            "Subject-based sessions",
-            "Faculty-created attendance sheets",
-            "Real-time sync",
-            "Sheet ID mapping",
-            "Firebase security rules"
+            "Offline-first with background sync",
+            "Session locking mechanism",
+            "Generate PDF reports with QR codes",
+            "Google Sheets bulk import",
+            "Defaulter tracking with configuration",
+            "Dark, Light, and System themes"
         ],
-        architectureDescription: "Android App (Faculty) → Firebase Firestore → Sessions/Students/AttendanceRecords → Real-time listeners",
-        links: { github: "https://github.com/Firdous__TFG/Smart-Attendance-System", live: "https://cgecattendance.xo.je" },
+        architectureDescription: "Android App (Offline-First) → WorkManager → Firebase Realtime Database ↔ Real-time sync across devices",
+        links: { github: "https://github.com/Firdous__TFG/Smart-Attendance-System", live: "https://attendpro-one.vercel.app/" },
         highlights: [
-            { label: "Sync", value: "Real-time" },
-            { label: "Security", value: "Firebase Rules enforced" }
+            { label: "Sync", value: "Offline & Background" },
+            { label: "Reports", value: "PDF & Google Sheets" }
         ],
-        order: 2
+        order: 1
     },
     {
         slug: "pid-temperature-control",
@@ -94,7 +96,7 @@ export const projects: Project[] = [
             { label: "Algorithm", value: "PID" },
             { label: "Feedback", value: "Continuous" }
         ],
-        order: 3
+        order: 5
     },
     {
         slug: "smart-irrigation",
@@ -122,7 +124,7 @@ export const projects: Project[] = [
         highlights: [
             { label: "Automation", value: "Threshold-based" }
         ],
-        order: 4
+        order: 2
     },
     {
         slug: "weather-aqi-prediction",
@@ -153,7 +155,7 @@ export const projects: Project[] = [
             { label: "Models", value: "LSTM + ARIMA" },
             { label: "Format", value: "TFLite" }
         ],
-        order: 5
+        order: 6
     },
     {
         slug: "home-automation-supabase",
@@ -182,7 +184,7 @@ export const projects: Project[] = [
             { label: "Protocol", value: "Supabase Realtime" },
             { label: "Serverless", value: "Edge Functions" }
         ],
-        order: 6
+        order: 3
     },
     {
         slug: "chat-app-architecture",

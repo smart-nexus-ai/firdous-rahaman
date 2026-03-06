@@ -28,7 +28,7 @@ export default function Footer() {
         <footer className="border-t border-dark-800 bg-dark-950/80 backdrop-blur-sm">
             <div className="max-w-6xl mx-auto px-4 py-12">
                 {/* Top Section */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-10">
                     {/* Brand */}
                     <div>
                         <Link
@@ -62,6 +62,41 @@ export default function Footer() {
                                     </Link>
                                 </li>
                             ))}
+                        </ul>
+                    </div>
+
+                    {/* Resources */}
+                    <div>
+                        <h4 className="text-sm font-mono font-bold text-white mb-4 uppercase tracking-wider">
+                            Resources
+                        </h4>
+                        <ul className="space-y-2">
+                            <li>
+                                <Link
+                                    href="/privacy-policy"
+                                    className="text-sm text-gray-500 hover:text-primary-400 transition-colors duration-300 font-mono"
+                                >
+                                    Privacy Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="/terms-of-service"
+                                    className="text-sm text-gray-500 hover:text-primary-400 transition-colors duration-300 font-mono"
+                                >
+                                    Terms of Service
+                                </Link>
+                            </li>
+                            <li>
+                                <Link
+                                    href="https://github.com/firdouscgec"
+                                    className="text-sm text-gray-500 hover:text-primary-400 transition-colors duration-300 font-mono"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Documentation
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
