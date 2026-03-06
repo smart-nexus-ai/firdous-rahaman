@@ -52,7 +52,7 @@ export default function TermsOfServicePage() {
 
                 <h2 className="text-2xl mt-10 mb-4 font-bold border-l-4 border-green-500 pl-4">3. Disclaimer of Warranties</h2>
                 <p>
-                    My apps, software, and services are provided "as is" and "as available".
+                    My apps, software, and services are provided &quot;as is&quot; and &quot;as available&quot;.
                 </p>
                 <ul>
                     <li>No warranty is given for uninterrupted access (especially concerning third-party dependencies like Firebase or Supabase).</li>

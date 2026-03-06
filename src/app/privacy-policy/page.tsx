@@ -41,9 +41,9 @@ export default function PrivacyPolicyPage() {
                     The types of information collected depend on the specific application:
                 </p>
                 <ul>
-                    <li><strong>AttendPro ("Smart Attendance Manager"):</strong> When using AttendPro, data such as teacher profiles, student rosters, session records, and attendance logs are collected. This data is essential for the core functionality of generating reports and syncing across devices.</li>
+                    <li><strong>AttendPro (&quot;Smart Attendance Manager&quot;):</strong> When using AttendPro, data such as teacher profiles, student rosters, session records, and attendance logs are collected. This data is essential for the core functionality of generating reports and syncing across devices.</li>
                     <li><strong>IoT Projects (AirSense, Smart Irrigation, etc.):</strong> My IoT solutions may collect sensor data (temperature, humidity, air quality indices, soil moisture) and device metadata. For authenticated applications, basic user profiles are retained.</li>
-                    <li><strong>Portfolio Site:</strong> I collect basic analytics (such as page views or referring sites) to improve the website's performance and design. If you contact me via email, your contact details will be retained solely for communication purposes.</li>
+                    <li><strong>Portfolio Site:</strong> I collect basic analytics (such as page views or referring sites) to improve the website&apos;s performance and design. If you contact me via email, your contact details will be retained solely for communication purposes.</li>
                 </ul>
 
                 <h2 className="text-2xl mt-10 mb-4 font-bold border-l-4 border-accent-purple pl-4">2. Data Storage and Security</h2>
@@ -62,7 +62,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <ul>
                     <li>Sensor data (e.g., from AirSense) might be aggregated to train Machine Learning pipelines (ARIMA/LSTM) purely for academic or community-driven forecasting models.</li>
-                    <li>Attendance data is strictly siloed for the respective educator's account, guarded by robust Firebase security rules.</li>
+                    <li>Attendance data is strictly siloed for the respective educator&apos;s account, guarded by robust Firebase security rules.</li>
                 </ul>
 
                 <h2 className="text-2xl mt-10 mb-4 font-bold border-l-4 border-green-500 pl-4">4. Third-Party Services</h2>
