@@ -1,0 +1,83 @@
+## Understanding PID Control
+
+Proportional-Integral-Derivative (PID) control is the standard algorithm used to maintain a physical system (like temperature, motor speed, or drone stability) at a specific setpoint. It works by calculating the **error** (difference between setpoint and actual value) and applying a correction based on three terms:
+
+1. **Proportional (P)**: Corrects based on the *current* error. Large error = large correction.
+2. **Integral (I)**: Corrects based on *past* accumulated errors, eliminating steady-state offset.
+3. **Derivative (D)**: Corrects based on the *rate of change* of error, dampening the response to prevent overshoot.
+
+## The Mathematical Model
+
+The control output is calculated as:
+
+```
+Output = (Kp * error) + (Ki * integral) + (Kd * derivative)
+```
+
+## A Practical 4-Step Tuning Method
+
+Tuning a PID controller without a mathematical model can feel like guesswork. The following heuristic method is the most practical way to tune controllers in the field:
+
+### 1. Zero Out the Terms
+Set `Ki` and `Kd` to `0`. Slowly increase the proportional gain `Kp` from zero until the output of the system starts to oscillate continuously around the setpoint.
+
+### 2. Find the Ultimate Gain (Ku) and Period (Tu)
+Once continuous, stable oscillation is achieved, note down:
+- The value of `Kp` that caused this (this is your **Ultimate Gain**, or `Ku`).
+- The time it takes for one complete oscillation wave (this is your **Ultimate Period**, or `Tu`).
+
+### 3. Calculate the Gains
+Apply the classic **Ziegler-Nichols** formulas depending on the type of control loop you want:
+
+| Control Type | Kp | Ki | Kd |
+| :--- | :--- | :--- | :--- |
+| **P Only** | `0.50 * Ku` | — | — |
+| **PI Control** | `0.45 * Ku` | `0.54 * Ku / Tu` | — |
+| **Full PID** | `0.60 * Ku` | `1.20 * Ku / Tu` | `0.075 * Ku * Tu` |
+
+### 4. Fine-Tune on Hardware
+Run your system with the calculated values:
+- If you notice **too much overshoot**, increase the derivative term `Kd` slightly or decrease `Kp`.
+- If the system is **sluggish** and takes too long to reach the target, increase the integral term `Ki` slightly.
+
+## Implementation Example (Arduino C++)
+
+Here is a clean, non-blocking implementation of a PID controller loop:
+
+```cpp
+float kp = 2.5;
+float ki = 0.5;
+float kd = 1.2;
+
+float previousError = 0;
+float integral = 0;
+unsigned long lastTime = 0;
+
+float updatePID(float setpoint, float currentValue) {
+  unsigned long now = millis();
+  float dt = (float)(now - lastTime) / 1000.0; // convert to seconds
+  if (dt <= 0.0) return 0;
+  
+  float error = setpoint - currentValue;
+  
+  // Calculate terms
+  integral += error * dt;
+  float derivative = (error - previousError) / dt;
+  
+  // Prevent integral windup (limit accumulator)
+  integral = constrain(integral, -100.0, 100.0);
+  
+  // Calculate output
+  float output = (kp * error) + (ki * integral) + (kd * derivative);
+  
+  // Save state
+  previousError = error;
+  lastTime = now;
+  
+  return output;
+}
+```
+
+## Conclusion
+
+By using Ziegler-Nichols tuning as a starting point and capping the integral term to avoid windup, you can quickly achieve stability and minimize overshoot in any hardware project.

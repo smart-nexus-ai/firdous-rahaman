@@ -16,8 +16,9 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-    const project = projects.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+    const { slug } = await params;
+    const project = projects.find((p) => p.slug === slug);
 
     if (!project) {
         return { title: 'Project Not Found' };
@@ -66,9 +67,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     };
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-    const project = projects.find((p) => p.slug === params.slug);
-    const currentIndex = projects.findIndex((p) => p.slug === params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+    const { slug } = await params;
+    const project = projects.find((p) => p.slug === slug);
+    const currentIndex = projects.findIndex((p) => p.slug === slug);
 
     if (!project) return notFound();
 
@@ -90,7 +92,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
                         fill
                         priority
                         sizes="(max-width: 768px) 100vw, 896px"
-                        className="object-cover"
+                        className={project.imageFit === 'contain' ? "object-contain p-4 bg-dark-950/40" : "object-cover"}
                     />
                 ) : (
                     <>

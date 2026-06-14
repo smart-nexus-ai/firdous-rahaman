@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import BlogCard from '@/components/blog/BlogCard';
 import { TerminalBlock } from '@/components/ui/TerminalBlock';
-import { blogPosts } from '@/data/blogs';
+import { blogPosts } from '@/data/blog';
 
 export const metadata: Metadata = {
     title: 'Blog',

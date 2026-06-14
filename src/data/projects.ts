@@ -216,5 +216,63 @@ export const projects: Project[] = [
             { label: "Protocols", value: "MQTT & WebSocket" }
         ],
         order: 7
+    },
+    {
+        slug: "mmd-studio",
+        title: "MMD Studio",
+        tagline: "Premium Mermaid Diagram Editor",
+        description: "Create, preview, and export high-quality Mermaid.js diagrams locally. Free, secure, fully offline, and no account required.",
+        category: ["web"],
+        status: "completed",
+        duration: "TBD",
+        heroImage: "/projects/mmd-studio-editor.png",
+        gallery: ["/projects/mmd-studio-hero.png"],
+        techStack: [
+            { name: "Next.js", icon: "code", category: "Frontend" },
+            { name: "Tailwind CSS", icon: "palette", category: "Styling" }
+        ],
+        features: [
+            "Local offline editing",
+            "Mermaid.js integration",
+            "Export capabilities",
+            "Secure and private"
+        ],
+        architectureDescription: "Next.js Static Site Generation with responsive Tailwind styling.",
+        links: { github: "https://github.com/firdouscgec", live: "https://mmdstudio.vercel.app" },
+        highlights: [
+            { label: "Focus", value: "Offline Diagramming" }
+        ],
+        order: 8,
+        imageFit: "contain"
+    },
+    {
+        slug: "tsr-dairy",
+        title: "TSR Dairy Manager",
+        tagline: "Precision Dairy Farming, In Your Pocket",
+        description: "Manage your dairy farm herd, log milk yield with fat & SNF details, track expenses, record sales, and monitor cow health offline-first.",
+        category: ["mobile", "web"],
+        status: "completed",
+        duration: "TBD",
+        heroImage: "/projects/tsr-dairy-dashboard.png",
+        gallery: ["/projects/tsr-dairy-hero.jpg"],
+        techStack: [
+            { name: "Kotlin", icon: "smartphone", category: "Mobile" },
+            { name: "Room", icon: "database", category: "Database" },
+            { name: "WorkManager", icon: "zap", category: "Background" }
+        ],
+        features: [
+            "Advanced Milk Yield logging",
+            "Herd Registry & Profiles",
+            "Veterinary Timelines",
+            "Feed Inventory tracking",
+            "Offline-first architecture"
+        ],
+        architectureDescription: "A native Android architecture designed for fast memory allocations, instant loading speeds, and robust local persistence via SQLite/Room.",
+        links: { github: "https://github.com/firdouscgec", live: "https://tsr-dairy.vercel.app" },
+        highlights: [
+            { label: "Platform", value: "Android Native" }
+        ],
+        order: 9,
+        imageFit: "contain"
     }
 ];

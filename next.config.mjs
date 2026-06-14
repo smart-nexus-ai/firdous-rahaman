@@ -1,3 +1,5 @@
+import createMDX from '@next/mdx';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     // Enable compression for smaller bundle sizes
@@ -48,6 +50,11 @@ const nextConfig = {
         optimizeCss: false,
         optimizePackageImports: ['lucide-react', 'framer-motion'],
     },
+
+    // Support MDX files
+    pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-export default nextConfig;
+const withMDX = createMDX({});
+
+export default withMDX(nextConfig);

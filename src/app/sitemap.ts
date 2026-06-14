@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { blogPosts } from '@/data/blogs';
+import { blogPosts } from '@/data/blog';
 import { projects } from '@/data/projects';
 import { siteConfig } from '@/data/siteConfig';
 

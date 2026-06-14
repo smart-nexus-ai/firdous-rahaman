@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
                             alt={project.title}
                             fill
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                            className="object-cover group-hover:scale-110 transition-transform duration-500"
+                            className={project.imageFit === 'contain' ? "object-contain p-2" : "object-cover group-hover:scale-110 transition-transform duration-500"}
                         />
                     ) : (
                         <span className="text-6xl font-mono text-dark-700 font-bold opacity-50 group-hover:scale-110 transition-transform duration-500">

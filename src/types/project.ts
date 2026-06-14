@@ -35,4 +35,5 @@ export interface Project {
     links: ProjectLinks;
     highlights: ProjectHighlight[];
     order: number;
+    imageFit?: 'cover' | 'contain';
 }

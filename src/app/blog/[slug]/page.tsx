@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
-import BlogContent from '@/components/blog/BlogContent';
-import { blogPosts } from '@/data/blogs';
+import { blogPosts } from '@/data/blog';
 import { notFound } from 'next/navigation';
+import dynamic from 'next/dynamic';
 
 interface BlogPostPageProps {
     params: Promise<{ slug: string }>;
@@ -36,6 +36,17 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     if (!post) {
         notFound();
     }
+
+    // Dynamically import the MDX content for the blog post
+    const PostContent = dynamic(() => import(`@/data/posts/${slug}.mdx`), {
+        loading: () => (
+            <div className="animate-pulse space-y-4 my-8">
+                <div className="h-4 bg-dark-800 rounded w-2/3"></div>
+                <div className="h-4 bg-dark-800 rounded w-full"></div>
+                <div className="h-4 bg-dark-800 rounded w-5/6"></div>
+            </div>
+        ),
+    });
 
     return (
         <div className="py-20 px-4 max-w-3xl mx-auto">
@@ -89,7 +100,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             </header>
 
             {/* Content */}
-            <BlogContent content={post.content} />
+            <div className="prose-custom">
+                <PostContent />
+            </div>
 
             {/* Footer divider */}
             <div className="mt-16 h-px bg-gradient-to-r from-transparent via-dark-800 to-transparent" />
